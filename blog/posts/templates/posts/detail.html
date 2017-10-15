@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block headerimg %}
+    {% if post.post_image %}
+        <div class="header-img" style="background-size: cover; height: 80%; width:100%; background-attachment: fixed;background-image: url({{ post.post_image.url }}); background-position-x: center; background-position-y:-100px">                    
+    {% else %}
+        {{ block.super }}
+    {% endif %}
+{% endblock headerimg %}
+            
+    {% block author %}
+            <div style="text-align: center;"><span style="color:white;">{{ post.title }}</span></div>
+            <div style="text-align: center;"><span style="color:white;">by {{ post.author }}</span></div>
+    {% endblock author %}
+
+{% block content %}
+<article class="article-content">
+    <p style="white-space: pre-wrap;">{{ post.content }}</p>
+</article>
+
+{%  endblock content %}

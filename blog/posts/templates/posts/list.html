@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+    {% for post in posts %}
+        <h3 style="font-family: fantasy"><a href='{{ post.get_absolute_url }}'>{{ post.title }}</a></h1>
+        <div>by <span class="author" style="color: #87818b">{{ post.author }}</span></div>
+        <article class="article-content">
+            <p style="font-family: serif">{{ post.content|truncatechars:300 }}</p>
+        </article>
+    {% empty %}
+        <div>Sorry!! no posts added yet </div>
+    {% endfor %}
+{% endblock content %}

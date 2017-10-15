@@ -1,0 +1,53 @@
+{% load staticfiles %}
+<html>
+    <head>
+        {% block title %}
+        <title>Welcome to blog posts</title>
+        {% endblock title%}
+        <link href='{% static "css/bootstrap.css"%}' rel="stylesheet">
+    </head>
+    <body>
+        <div class="header-img wrapper">
+            {% block header %}
+                {% block headerimg %}
+                <div class="header-img" style="background-size: cover; height: 80%; width:100%; background-attachment: fixed;background-image: url({% static 'img/blog_back.jpg' %}); background-position-x: center; background-position-y:-100px">
+                {% endblock headerimg %}
+                    <div class="container">
+                        <nav class="nav nav-masthead" style="position: fixed">
+                                <a class="nav-link" href="{% url 'list' %}">Home</a>
+                                <a class="nav-link" href="#">contact</a>
+                                <a class="nav-link" href="{% url 'new' %}">new</a>
+                        </nav>
+                        <!--<div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                              <span class="sr-only">Toggle navigation</span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="#">Project name</a>
+                          </div>-->
+                    </div>
+                        {% block blogname %}
+                        <div class="blog-name" style="font-size: 100; text-align: center; padding-top: 200px; color: cornsilk">     <p>Aarohana</p>
+                        </div>
+                        {% endblock blogname %}
+                        {% block author %}
+                            <div style="text-align: center; color:white;">
+                                <p>ನೆನಪಿನಂಗಳದಿ ಭಾವನೆಗಳ ಸಮ್ಮಿಲನ</p>
+                            </div>
+                        {% endblock author %}
+            </div>
+            {% endblock header %}
+        </div> 
+        
+        <div>
+            <div class="container" >
+                    <div class="jumbotron">
+                        {% block content %}
+                        {% endblock content %}
+                    </div>
+            </div>
+        </div>
+    </body>
+</html>
